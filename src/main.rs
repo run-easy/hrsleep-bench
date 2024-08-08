@@ -285,8 +285,7 @@ fn hr_sleep_bench(micro: time::Duration) -> Vec<u64> {
     let mut results = Vec::new();
     for _ in 0..NUM_ITERATIONS {
         let start = unsafe { core::arch::x86_64::_rdtsc() };
-        // hrsleep::hr_sleep(micro);
-        std::thread::sleep(micro);
+        hrsleep::hr_sleep(micro);
         let end = unsafe { core::arch::x86_64::_rdtsc() };
         results.push(end - start);
     }
@@ -298,8 +297,7 @@ fn nano_sleep_bench(micro: time::Duration) -> Vec<u64> {
     let mut results = Vec::new();
     for _ in 0..NUM_ITERATIONS {
         let start = unsafe { core::arch::x86_64::_rdtsc() };
-        std::thread::sleep(micro);
-        // hrsleep::nanosleep(micro);
+        hrsleep::nanosleep(micro);
         let end = unsafe { core::arch::x86_64::_rdtsc() };
         results.push(end - start);
     }
