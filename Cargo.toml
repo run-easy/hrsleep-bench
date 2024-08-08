@@ -1,0 +1,10 @@
+[package]
+name = "hrsleep_bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = {version = "^4.5.13", features = ["derive"]}
+hrsleep = { git = "https://github.com/run-easy/hrsleep.git" }
+libc = {version = "^0.2.155", optional = false }
+rtsc-time = { git = "https://github.com/run-easy/rtsc-time.git" }
